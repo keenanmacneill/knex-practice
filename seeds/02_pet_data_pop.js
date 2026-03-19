@@ -1,13 +1,8 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
+const { generatePets } = require('../helpers/generatePets.js');
+
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
-  await knex('pet').del();
-  await knex('pet').insert([
-    { id: 1, name: 'Figaro', pet_type_id: 2 },
-    { id: 2, name: 'Fat Sam', pet_type_id: 3 },
-    { id: 3, name: 'Moki', pet_type_id: 1 },
-  ]);
+  const pets = generatePets(50);
+
+  await knex.raw('TRUNCATE TABLE pet RESTART IDENTITY CASCADE');
+  await knex('pet').insert(pets);
 };
