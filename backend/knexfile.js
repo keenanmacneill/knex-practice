@@ -1,8 +1,10 @@
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'dev'}`,
+});
 
 module.exports = {
-  development: {
+  dev: {
     client: 'pg',
     connection: {
       host: process.env.DB_HOST,
@@ -20,14 +22,18 @@ module.exports = {
   },
 
   test: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: process.env.TEST_DB_NAME || 'test_db',
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
     },
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: process.env.DATABASE_URL,
   },
 };

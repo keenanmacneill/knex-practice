@@ -7,6 +7,8 @@ if (!config[env]) {
   throw new Error(`Missing knex configuration for environment: ${env}`);
 }
 
+console.log(`Using DB environment: ${env}`);
+
 const db = knex(config[env]);
 
 module.exports = db;
