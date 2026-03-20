@@ -6,14 +6,14 @@
   "type": "commonjs",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon src/server.js",
-    "test-db": "cross-env NODE_ENV=test knex migrate:latest && knex seed:run",
+    "test": "cross-env NODE_ENV=test knex migrate:latest && knex seed:run",
     "start": "cross-env NODE_ENV=prod node src/server.js",
+    "migrate-make": "knex migrate:make",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
+    "seed-make": "knex seed:make",
     "seed": "knex seed:run",
-    "reset-db": "knex migrate:rollback --all && knex migrate:latest && knex seed:run",
-    "migrate-make": "knex migrate:make",
-    "seed-make": "knex seed:make"
+    "reset": "knex migrate:rollback --all && knex migrate:latest && knex seed:run"
   },
   "keywords": [],
   "author": "",
