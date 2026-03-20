@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const express = require('express');
 const app = express();
 const petsRoutes = require('./modules/pets/pets.routes');
