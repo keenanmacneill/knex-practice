@@ -1,20 +1,19 @@
 services:
+  frontend:
+    build: ./frontend
+    ports:
+      - '5173:5173'
+    env_file:
+      - ./frontend/.env.development
+    depends_on:
+      - backend
+
   backend:
     build: ./backend
     ports:
       - '8080:8080'
     env_file:
       - ./backend/.env.production
-    depends_on:
-      db:
-        condition: service_healthy
-
-  frontend:
-    build: ./frontend
-    ports:
-      - '3030:3030'
-    env_file:
-      - ./frontend/.env.production
     depends_on:
       db:
         condition: service_healthy

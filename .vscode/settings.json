@@ -6,8 +6,8 @@
       "server": "localhost",
       "port": 5432,
       "driver": "PostgreSQL",
-      "name": "pg",
-      "database": "pet_store",
+      "name": "pet_store_production",
+      "database": "pet_store_production",
       "username": "postgres",
       "password": "docker"
     },
@@ -17,8 +17,8 @@
       "server": "localhost",
       "port": 5432,
       "driver": "PostgreSQL",
-      "name": "pet_store_production",
-      "database": "pet_store_production",
+      "name": "pet_store_dev",
+      "database": "pet_store",
       "username": "postgres",
       "password": "docker"
     }
