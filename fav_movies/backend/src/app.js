@@ -13,11 +13,11 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Working' });
 });
 
-app.get('/movies', async (req, res) => {
+app.get('/fav_movies', async (req, res) => {
   try {
-    const movies = await db('favorites').select('*');
+    const fav_movies = await db('favorites').select('*');
 
-    res.status(200).json(movies);
+    res.status(200).json(fav_movies);
   } catch (err) {
     res.status(err.status || 500).json({
       message: err.message || 'Internal server error.',

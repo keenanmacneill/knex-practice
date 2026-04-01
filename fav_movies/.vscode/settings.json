@@ -6,8 +6,8 @@
       "server": "localhost",
       "port": 5432,
       "driver": "PostgreSQL",
-      "name": "movies",
-      "database": "movies",
+      "name": "fav_movies",
+      "database": "fav_movies",
       "username": "postgres",
       "password": "docker"
     }

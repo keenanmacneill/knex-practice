@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
 
 export default function App() {
-  const [movies, setMovies] = useState([]);
+  const [favMovies, setFavMovies] = useState([]);
 
   useEffect(() => {
-    const getMovies = async () => {
-      const data = await fetch('http://localhost:8000/movies');
-      const movies = await data.json();
+    const getfavMovies = async () => {
+      const data = await fetch('http://localhost:8000/favMovies');
+      const favMovies = await data.json();
 
-      setMovies(movies);
+      setFavMovies(favMovies);
     };
 
-    getMovies();
-  }, [setMovies]);
+    getfavMovies();
+  }, [setFavMovies]);
 
-  if (!movies.length) return <h1>Loading...</h1>;
-  console.log(movies);
+  if (!favMovies.length) return <h1>Loading...</h1>;
+  console.log(favMovies);
 
   return (
     <div>
-      {movies.map(m => (
+      {favMovies.map(m => (
         <div>
           <p>{m.title}</p>
           <p>{m.main_character}</p>
