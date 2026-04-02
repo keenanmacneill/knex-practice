@@ -39,7 +39,7 @@ export default function App() {
     }
   };
 
-  if (!movies.length) return <h1>Loading...</h1>;
+  // if (!movies.length) return <h1>Loading...</h1>;
 
   return (
     <>
